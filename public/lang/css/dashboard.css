@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+
+.my-color{
+	color: #5862F3;
+}
+.my-btn{
+	background-color: #5862F3;
+	color: #fff;
+}
+
+.my-btn:hover{
+	color: #5862F3;
+	background-color: #fff;
+	border: 1px solid #5862F3;
+}
