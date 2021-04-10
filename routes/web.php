@@ -14,5 +14,65 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
+});
+
+Route::get('/create', function(){
+	return view('create_ext');
+});
+Route::get('/edit', function(){
+	return view('edit_ext');
+});
+
+Route::get('/delete', function(){
+	return view('delete_ext');
+});
+
+Route::get('/upload-bg', function(){
+	return view('upload_bg');
+});
+Route::get('/edit-bg', function(){
+	return view('edit_bg');
+});
+Route::get('/delete-bg', function(){
+	return view('delete_bg');
+});
+
+Route::get('/create-shortcut', function(){
+	return view('create_shortcut');
+});
+
+Route::get('/edit-shortcut', function(){
+	return view('edit_shortcut');
+});
+
+Route::get('add-game', function(){
+	return view('add_game');
+});
+
+Route::get('edit-game', function(){
+	return view('edit_game');
+});
+
+Route::get('delete-game', function(){
+	return view('delete_game');
+});
+
+Route::get('/support', function(){
+	return view('support');
+});
+
+Route::get('/edit-support', function(){
+	return view('edit_support');
+});
+
+Route::get('/signup', function(){
+	return view('signup');
+});
+
+Route::get('/login', function(){
+	return view('login');
+});
+Route::get('/admin', function(){
+	return view('login');
 });
