@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', 'rootController@result');
 
 Route::get('/create', function(){
 	return view('create_ext');
@@ -42,19 +40,19 @@ Route::get('/create-shortcut', function(){
 	return view('create_shortcut');
 });
 
-Route::get('/edit-shortcut', function(){
-	return view('edit_shortcut');
+Route::get('/delete-shortcut', function(){
+	return view('delete_shortcut');
 });
 
-Route::get('add-game', function(){
+Route::get('/add-game', function(){
 	return view('add_game');
 });
 
-Route::get('edit-game', function(){
+Route::get('/edit-game', function(){
 	return view('edit_game');
 });
 
-Route::get('delete-game', function(){
+Route::get('/delete-game', function(){
 	return view('delete_game');
 });
 
@@ -76,3 +74,13 @@ Route::get('/login', function(){
 Route::get('/admin', function(){
 	return view('login');
 });
+Route::get('/dashboard', function(){
+	return view('dashboard');
+});
+
+
+Route::post('/user/login', 'user_login@result');
+
+Route::post('/user/signup', 'user_signup@result');
+
+Route::get('/user/logout', 'user_logout@result');

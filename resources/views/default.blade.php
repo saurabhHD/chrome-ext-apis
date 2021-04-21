@@ -19,7 +19,7 @@
     @yield('custom-js')
   <!-- /custom js-->
 </head>
-<body>
+<body token="{{csrf_token()}}">
   @yield('content')
   
 

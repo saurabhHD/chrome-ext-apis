@@ -4,36 +4,40 @@
 @section('page-title')
 Upload Background Images
 
-@endsection()
+@endsection
 
 
 @section('opration-title')
 
 Upload Background Images
-@endsection()
+@endsection
+
+@section('custom-js')
+	<script src="lang/js/load-ext.js"></script>
+	<script src="lang/js/manage-bg.js"></script>
+@endsection
 
 @section('form-box')
 <div class="mb-2">
-<form class="p-3">
+<form class="p-3 upload-bg-form" enctype="multipart/form-data" action="/api/background-image" method="post">
 	<div class="form-group">
 		<label class="">Extention Name</label>
-		<select class="form-control" name="ext_name">
-			<option>Option1</option>
-			<option>Option1</option>
+		<select class="form-control ext-option" name="ext_id">
+			
 		</select>
 	</div>
 	<div class="form-group">
 		<label class="">Select Images</label>
-		<input type="file" name="images" class="form-control">
+		<input type="file" accept="image/*" name="image_path" class="form-control">
 	</div>
-	<button class="btn my-btn float-right px-4 shadow-lg" type="submit">Upload</button>
+	<button class="btn my-btn float-right px-4 shadow-lg upload-bg-btn" type="submit">Upload</button>
 </form>
 </div>
-<div class="p-3">
+<div class="p-3 notice d-none">
 <div class="alert alert-success mt-5 shadow-lg mb-5">
 	<p class="text-center">Congrates ! </p>
 	<p class="text-center">Upload Successfull</p>
 	
 </div>
 </div>
-@endsection()
+@endsection

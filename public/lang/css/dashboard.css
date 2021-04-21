@@ -2,15 +2,18 @@
 
 
 .my-color{
-	color: #5862F3;
+	color: #7D97F4;
 }
 .my-btn{
-	background-color: #5862F3;
+	background-color: #7D97F4;
 	color: #fff;
 }
 
 .my-btn:hover{
-	color: #5862F3;
+	color: #7D97F4 !important;
 	background-color: #fff;
-	border: 1px solid #5862F3;
+	border: 1px solid #7D97F4;
+}
+.hover:hover{
+	cursor: pointer;
 }

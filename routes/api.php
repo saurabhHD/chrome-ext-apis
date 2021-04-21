@@ -17,3 +17,27 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('/extention', 'extention');
+
+Route::apiResource('/background-image', 'background_image');
+
+Route::apiResource('/shortcuts', 'shortcut');
+
+Route::apiResource('/game','ManageGameController');
+
+Route::apiResource('/support','ManageSupportController');
+
+Route::get('/v1/background/image/app/{ext_id}/random', 'restApi\backgroundImage@result');
+
+Route::get('/v1/shortcuts/app/all','restApi\shortcutController@result');
+
+Route::get('/v1/support/app/{ext_id}/all','restApi\supportController@result');
+
+Route::get('/v1/backgroun/app/{ext_id}/all/images','restApi\multiBackgroundController@result');
+
+Route::get('/v1/game/app/all', 'restApi\gameController@result');
+
+
+
+

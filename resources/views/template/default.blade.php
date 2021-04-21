@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +20,10 @@
     @yield('custom-js')
   <!-- /custom js-->
 </head>
-<body>
+<body token='{{csrf_token()}}'>
   <nav class="w-100 bg-white shadow-lg p-3" style="border-bottom: 2px solid #5862F3">
-    <h4 class="my-color ml-4">Dashboard</h4>
+    <h4 class="my-color ml-4">Dashboard  <span class="text-danger float-right"><a href="user/logout" class="text-decoration-none"><i class="fa fa-sign-out"></i>Logout</a></span></h4>
+
   </nav>
   <div class="container-fluid">
     <div class="row">
@@ -29,19 +31,16 @@
         <div class="menu pl-3">
           <h5 class="my-color text-center font-weight-bold">Menus</h5>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="/create" class="text-decoration-none">Create Extention</a></li>
-             <li class="list-group-item"><a href="/edit" class="text-decoration-none">Edit Extention</a></li>
-              <li class="list-group-item"><a href="/delete" class="text-decoration-none">Delete Extention</a></li>
+            <li class="list-group-item"><a href="/create" class="text-decoration-none">Manage Extention</a></li>
           <li class="list-group-item"><a href="/upload-bg" class="text-decoration-none">Upload Background Images</a></li>
-          <li class="list-group-item"><a href="/edit-bg" class="text-decoration-none">Edit Background Images</a></li>
           <li class="list-group-item"><a href="/delete-bg" class="text-decoration-none">Delete Background Images</a></li>
           <li class="list-group-item"><a href="/create-shortcut" class="text-decoration-none">Create Shortcuts</a></li>
-          <li class="list-group-item"><a href="/edit-shortcut" class="text-decoration-none">Edit Shortcuts</a></li>
+          <li class="list-group-item"><a href="/delete-shortcut" class="text-decoration-none">Delete Shortcuts</a></li>
           <li class="list-group-item"><a href="/add-game" class="text-decoration-none">Add Games</a></li>
-          <li class="list-group-item"><a href="/edit-game" class="text-decoration-none">Edit Games</a></li>
           <li class="list-group-item"><a href="/delete-game" class="text-decoration-none">Delete Games</a></li>
           <li class="list-group-item"><a href="/support" class="text-decoration-none">Support</a></li>
           <li class="list-group-item"><a href="/edit-support" class="text-decoration-none">Edit Support</a></li>
+          <li class="list-group-item"><a href="/card" class="text-decoration-none">Create Card</a></li>
         </ul>
         </div>
       </div>
