@@ -54,9 +54,9 @@ class ManageGameController extends Controller
         $this->data = $this->data->all();
         $this->fileinfo = $request->file('image_path');
         $this->filename = $this->random."--".$this->fileinfo->getClientOriginalName();
-        if($this->fileinfo->storeAs('public',$this->filename))
+        if($this->fileinfo->storeAs('public/game',$this->filename))
         {
-            $this->temp = array('image_path' => $this->filename);
+            $this->temp = array('image_path' => 'game/'.$this->filename);
             $this->data = array_replace($this->data, $this->temp);
             if(Manage_game::create($this->data))
             {

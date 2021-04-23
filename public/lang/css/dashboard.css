@@ -1,5 +1,9 @@
+
 @charset "utf-8";
 
+body{
+	background-color: #ffffff;
+}
 
 .my-color{
 	color: #7D97F4;

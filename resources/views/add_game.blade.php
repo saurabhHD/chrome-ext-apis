@@ -21,14 +21,15 @@ Upload Background Images
 		<input type="text" name="title" class="form-control">
 	</div>
 	<div class="form-group">
+		<label class="">Url</label>
+		<input type="url" name="url" class="form-control">
+	</div>
+	<div class="form-group">
 		<label class="">Thubmnail</label>
 		<input type="file" name="image_path" class="form-control">
 	</div>
 	
-	<div class="form-group">
-		<label class="">Url</label>
-		<input type="url" name="url" class="form-control">
-	</div>
+	
 	<button class="btn my-btn float-right px-4 shadow-lg add-game-btn" type="submit">Add Game</button>
 </form>
 </div>

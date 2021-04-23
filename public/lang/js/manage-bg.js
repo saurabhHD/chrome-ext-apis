@@ -12,6 +12,7 @@ $(document).ready(function(){
 				$(".upload-bg-btn").html("Uploading...");
 			},
 			success : function(response){
+				console.log(response);
 				$(".upload-bg-btn").html("Upload");
 				$(".notice").removeClass('d-none');
 				setTimeout(function(){

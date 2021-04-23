@@ -21,33 +21,39 @@
   <!-- /custom js-->
 </head>
 <body token='{{csrf_token()}}'>
-  <nav class="w-100 bg-white shadow-lg p-3" style="border-bottom: 2px solid #5862F3">
+  <!--<nav class="w-100 bg-white shadow-sm p-3">
     <h4 class="my-color ml-4">Dashboard  <span class="text-danger float-right"><a href="user/logout" class="text-decoration-none"><i class="fa fa-sign-out"></i>Logout</a></span></h4>
 
-  </nav>
+  </nav> -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-4 bg-white mt-2 p-3 shadow-lg" style="border-right: 2px solid #5862F3">
+      <div class="col-md-4 bg-white  p-3 shadow-lg">
         <div class="menu pl-3">
-          <h5 class="my-color text-center font-weight-bold">Menus</h5>
+          <div class="my-2 text-center mb-4">
+            <i class="fa fa-user-circle fa-4x"></i>
+            <p class="my-2">Hi ! Admin </p>
+             <p class="text-danger float-right"><a href="user/logout" class="text-decoration-none text-danger"><i class="fa fa-sign-out"></i>Logout</a></p>
+           
+          </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><a href="/create" class="text-decoration-none">Manage Extention</a></li>
-          <li class="list-group-item"><a href="/upload-bg" class="text-decoration-none">Upload Background Images</a></li>
-          <li class="list-group-item"><a href="/delete-bg" class="text-decoration-none">Delete Background Images</a></li>
-          <li class="list-group-item"><a href="/create-shortcut" class="text-decoration-none">Create Shortcuts</a></li>
-          <li class="list-group-item"><a href="/delete-shortcut" class="text-decoration-none">Delete Shortcuts</a></li>
-          <li class="list-group-item"><a href="/add-game" class="text-decoration-none">Add Games</a></li>
-          <li class="list-group-item"><a href="/delete-game" class="text-decoration-none">Delete Games</a></li>
-          <li class="list-group-item"><a href="/support" class="text-decoration-none">Support</a></li>
-          <li class="list-group-item"><a href="/edit-support" class="text-decoration-none">Edit Support</a></li>
-          <li class="list-group-item"><a href="/card" class="text-decoration-none">Create Card</a></li>
+            <li class="list-group-item"><a href="/create" class="text-decoration-none text-secondary">
+           Manage Extention</a></li>
+          <li class="list-group-item"><a href="/upload-bg" class="text-decoration-none text-secondary">Upload Background Images</a></li>
+          <li class="list-group-item"><a href="/delete-bg" class="text-decoration-none text-secondary">Delete Background Images</a></li>
+          <li class="list-group-item"><a href="/create-shortcut" class="text-decoration-none text-secondary">Create Shortcuts</a></li>
+          <li class="list-group-item"><a href="/delete-shortcut" class="text-decoration-none text-secondary">Delete Shortcuts</a></li>
+          <li class="list-group-item"><a href="/add-game" class="text-decoration-none text-secondary">Add Games</a></li>
+          <li class="list-group-item"><a href="/delete-game" class="text-decoration-none text-secondary">Delete Games</a></li>
+          <li class="list-group-item"><a href="/support" class="text-decoration-none text-secondary">Support</a></li>
+          <li class="list-group-item"><a href="/edit-support" class="text-decoration-none text-secondary">Edit Support</a></li>
+          <li class="list-group-item"><a href="/card" class="text-decoration-none text-secondary">Create Card</a></li>
         </ul>
         </div>
       </div>
       <div class="col-1">
        
       </div>
-      <div class="col-7 bg-white mt-2 p-3 shadow-lg" style="border-left: 2px solid #5862F3">
+      <div class="col-md-7 bg-white  p-3 shadow-lg">
         <h4 class="text-center text-secondary">@yield('page-title')</h4>
         <hr>
         @yield('form-box')

@@ -19,6 +19,7 @@ class background_image extends Controller
     public $ext_id;
     public $temp;
     public $random;
+    public $notice;
     public function index()
     {
         //
@@ -43,25 +44,41 @@ class background_image extends Controller
     public function store(Request $request)
     {
         $this->data = $request->all();
-        $this->file  = $request->file('image_path');
-        $this->random = random_int(1, 10000);
-        $this->filename = $this->random."_".$this->file->getClientOriginalName();
-        if($this->file->storeAs('public',$this->filename))
+        if($request->hasFile('image_path'))
         {
-            $this->temp = array('image_path'=> $this->filename);
-            $this->data = array_replace($this->data, $this->temp);
-            if(Manage_bg::create($this->data))
+            foreach($request->file('image_path') as $file)
             {
-              return response(array("data"=>"success"),200)->header('Content-Type','application/json');  
+                 $this->random = random_int(1, 10000);
+                $this->filename = $this->random."_".$file->getClientOriginalName();
+                if($file->storeAs('public/background', $this->filename))
+                {
+                    $this->temp = array('image_path'=> 'background/'.$this->filename);
+                    $this->data = array_replace($this->data, $this->temp);
+                    if(Manage_bg::create($this->data))
+                    {
+                      $this->notice = "success"; 
+                    }
+                    else
+                    {
+                        $this->notice = "faild";
+                    }
+                }
             }
-            else
-            {
-                return response(array("data"=>"Faild"),401)->header('Content-Type','application/json'); 
-            }
+
+           if($this->notice == "success")
+           {
+                return response(array("data"=>$this->notice),200)->header('Content-Type','application/json');
+           }  
+           else
+           {
+            return response(array("data"=>$this->notice),404)->header('Content-Type','application/json');
+           }
+
+
         }
         else
         {
-             return response(array("data"=>"rename your photo"),401)->header('Content-Type','application/json'); 
+             return response(array("data"=>"select files"),401)->header('Content-Type','application/json');
         }
         
         
@@ -118,7 +135,7 @@ class background_image extends Controller
         $this->temp = $this->temp[0]['image_path'];
         if($this->data->delete())
         {
-                if( File::delete('storage/'.$this->temp))
+                if( File::delete('storage/background'.$this->temp))
                 {
                     return response(array('data' => 'success'),200)->header('Content-Type','application/json');
                 }

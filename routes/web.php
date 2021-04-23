@@ -78,9 +78,13 @@ Route::get('/dashboard', function(){
 	return view('dashboard');
 });
 
+Route::get('/card', function(){
+	return view('cards');
+});
 
 Route::post('/user/login', 'user_login@result');
 
 Route::post('/user/signup', 'user_signup@result');
 
 Route::get('/user/logout', 'user_logout@result');
+

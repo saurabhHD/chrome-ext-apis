@@ -81,7 +81,9 @@ class extention extends Controller
                 "two" => $this->url."/api/v1/shortcuts/app/all",
                 "three" => $this->url."/api/v1/support/app/".base64_encode($this->data->id)."/all",
                 "four" => $this->url."/api/v1/backgroun/app/".base64_encode($this->data->id)."/all/images", 
-                "five" => $this->url."/api/v1/game/app/all");
+                "five" => $this->url."/api/v1/game/app/all",
+                "six" => $this->url."/api/v1/card/app/all"
+            );
 
              return response(array("data" => $this->api),200)->header('Content-Type', 'application/json');
             }
@@ -156,7 +158,7 @@ class extention extends Controller
             {
                 $this->temp = $this->main_data[$this->i]['image_path'];
 
-                if(File::delete('storage/'.$this->temp))
+                if(File::delete('storage'.$this->temp))
                 { 
                     $this->notice = "success";
                     

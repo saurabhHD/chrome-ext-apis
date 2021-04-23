@@ -50,9 +50,9 @@ class shortcut extends Controller
         {
             $this->fileinfo =  $request->file('image_path');
             $this->filename = $this->random."__".$this->fileinfo->getClientOriginalName();
-            if($this->fileinfo->storeAs('public',$this->filename))
+            if($this->fileinfo->storeAs('public/shortcut',$this->filename))
             {
-                $this->temp = array('image_path' => $this->filename);
+                $this->temp = array('image_path' => 'shortcut/'.$this->filename);
                 $this->data = array_replace($this->data, $this->temp);
 
                 if(Manage_shortcut::create($this->data))
