@@ -18,9 +18,7 @@ Admin SignUp
 				<h3 class="text-center mt-4 mb-3" style="color: #7D97F4">Admin Signup !</h3>
 				<form class="signup-form" method="post" action="user/signup">
 					@csrf
-					<div class="form-group" style="margin-top: 70px;">
-						<input type="text" name="name" class="form-control  rounded-lg" placeholder="FULL NAME">
-					</div>
+					
 					<div class="form-group mt-4">
 						<input type="email" name="username" class="form-control  rounded-lg" placeholder="ENTER YOUR EMAIL">
 					</div>
@@ -102,26 +100,23 @@ Admin SignUp
 				beforeSend : function()
 				{
 					$('.signup-btn').html('Processing...');
+					$('.signup-btn').attr('disabled', true);
 				},
 				success : function(response)
 				{
 					$('.signup-btn').html('Signup');
-					if(response.notice == "success")
+					$('.signup-btn').attr('disabled', false);
+					if(response.data == "success")
 					{
 						window.location = '/dashboard';
 					}
 					else
 					{
-						alert(response.notice);
+						alert("something went wrong");
 					}
-					console.log(response);
+					
 				},
-				error : function(error)
-				{
-					$('.signup-btn').html('Signup');
-					alert("password and conform password must be same");
-					console.log(error);
-				}
+
 			});
 		});
 	}

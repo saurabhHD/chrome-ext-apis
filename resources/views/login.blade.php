@@ -3,7 +3,7 @@
 @section('title')
 
 Admin Login !
-@endsection()
+@endsection
 
 @section('content')
 <div class="container p-3">
@@ -35,4 +35,4 @@ Admin Login !
 		</div>
 	</div>
 
-@endsection()
+@endsection

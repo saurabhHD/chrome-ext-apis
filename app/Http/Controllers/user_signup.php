@@ -10,54 +10,35 @@ class user_signup extends Controller
 	public $password;
 	public $temp;
 	public $username;
-    public $otp;
-    public $emailverify;
     public function result(Request $request)
     {
-     
-     if(count(User_data::all()) > 1) 
-     {
-         return response(array('notice' => 'already register'),401)->header('Content-Type','application/json');
-     } 
-     else
-     {
-        $this->otp = random_int(0, 9).random_int(0, 9).random_int(0, 9).random_int(0, 9).random_int(0, 9).random_int(0, 9);
-        $this->data = $request->all();
-        if($this->data['password'] == $this->data['con-password'])
+        
+    	$this->data = User_data::all();
+        if(count($this->data) > 1)
         {
-            $this->username = $this->data['username'];
-            $this->emailverify =  User_data::where('username', $this->username)->get();
-            
-           
-            if(count($this->emailverify) >0)
+            return response(array("data" => "You can't register with us"),401)->header('Content-Type','application/json');
+        }
+        elseif(count($this->data) == 0)
+        {
+                $this->data = $request->all();
+            if($this->data['password'] == $this->data['con-password'])
             {
-                 return response(array('notice' => 'already register'),200)->header('Content-Type','application/json');
+                $this->temp = array("password" => md5($this->data['password']));
+                $this->data = array_replace($this->data, $this->temp);
+                if(User_data::create($this->data))
+               {
+                session()->put("username", $this->data['username']);
+                 return response(array("data" => "success"),200)->header('Content-Type','application/json');
+               }
+               else
+               {
+                 return response(array("data" => "something went wrong"),401)->header('Content-Type','application/json');
+               }
             }
             else
             {
-                $this->password = md5($this->data['password']);
-                $this->temp = array("password" => $this->password);
-                $this->data = array_replace($this->data, $this->temp);
-                $this->data['status']  = "pending";
-                $this->data['otp']  = $this->otp;
-                if(User_data::create($this->data))
-                {
-                    session()->put('username' ,$this->username);
-                    return response(array('notice' => 'success'),200)->header('Content-Type','application/json');
-                    
-                }
-                else
-                {
-                    return response(array('notice' => 'something went wrong'),401)->header('Content-Type','application/json');
-                }
-            }
-            
+               return response(array("data" => "password must be same"),200)->header('Content-Type','application/json');
+             }
         }
-        else
-        {
-            return response(array('notice' => 'access denide'),401)->header('Content-Type','application/json');
-        }
-     } 
-    	
     }
 }

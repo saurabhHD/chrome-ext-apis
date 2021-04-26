@@ -79,7 +79,7 @@ class extention extends Controller
             $this->api = array(
                 "one" => $this->url."/api/v1/background/image/app/".base64_encode($this->data->id)."/random",
                 "two" => $this->url."/api/v1/shortcuts/app/all",
-                "three" => $this->url."/api/v1/support/app/".base64_encode($this->data->id)."/all",
+                "three" => $this->url."/api/v1/support/app/all",
                 "four" => $this->url."/api/v1/backgroun/app/".base64_encode($this->data->id)."/all/images", 
                 "five" => $this->url."/api/v1/game/app/all",
                 "six" => $this->url."/api/v1/card/app/all"

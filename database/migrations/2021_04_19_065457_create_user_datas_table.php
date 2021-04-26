@@ -18,9 +18,6 @@ class CreateUserDatasTable extends Migration
             $table->timestamps();
             $table->string('username',100);
             $table->string('password',80);
-            $table->string('status',10);
-            $table->string('name',100);
-            $table->integer('otp');
         });
     }
 

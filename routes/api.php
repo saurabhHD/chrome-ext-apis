@@ -33,7 +33,7 @@ Route::get('/v1/background/image/app/{ext_id}/random', 'restApi\backgroundImage@
 
 Route::get('/v1/shortcuts/app/all','restApi\shortcutController@result');
 
-Route::get('/v1/support/app/{ext_id}/all','restApi\supportController@result');
+Route::get('/v1/support/app/all','restApi\supportController@result');
 
 Route::get('/v1/backgroun/app/{ext_id}/all/images','restApi\multiBackgroundController@result');
 
