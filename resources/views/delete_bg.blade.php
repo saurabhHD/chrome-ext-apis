@@ -68,6 +68,7 @@ Delete Background Images
 								beforeSend : function()
 								{
 									$(delete_bg_btn).html('Deleting...');
+									$(delete_bg_btn).attr("disabled", true);
 								},
 								success : function(response)
 								{
@@ -76,6 +77,7 @@ Delete Background Images
 									console.log(response);
 								},
 								error : function(response){
+									$(delete_bg_btn).attr("disabled", false);
 									alert("something went wrong");
 									
 								}

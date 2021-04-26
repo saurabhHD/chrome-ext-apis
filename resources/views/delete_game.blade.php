@@ -81,14 +81,17 @@ Upload Background Images
 			},
 			beforeSend : function(){
 				  $(delete_btn).html('Deleteing...');
+				   $(delete_btn).attr("disabled", true);
 			},
 			success : function(response){
 				$(parent).remove();
 				$(delete_btn).html('Delete');
+				$(delete_btn).attr("disabled", false);
 			},
 			error : function(response){
 				alert('something went wrong !');
 				$(delete_btn).html('Delete');
+				$(delete_btn).attr("disabled", false);
 			}
 			});
 		}
@@ -105,12 +108,14 @@ Upload Background Images
 			},
 			beforeSend : function(){
 				  $(update_btn).html('Updating...');
+				  $(update_btn).attr("disabled", true);
 			},
 			success : function(response){
-				
+				$(update_btn).attr("disabled", false);
 				$(update_btn).html('<i class="fa fa-edit"></i>Update');
 			},
 			error : function(response){
+				$(update_btn).attr("disabled", false);
 				alert('something went wrong !');
 				$(update_btn).html('Update');
 				console.log(response);

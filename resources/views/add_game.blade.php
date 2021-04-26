@@ -18,15 +18,15 @@ Upload Background Images
 	@csrf
 	<div class="form-group">
 		<label class="">Title</label>
-		<input type="text" name="title" class="form-control">
+		<input type="text" name="title" class="form-control" required>
 	</div>
 	<div class="form-group">
 		<label class="">Url</label>
-		<input type="url" name="url" class="form-control">
+		<input type="url" name="url" class="form-control" required>
 	</div>
 	<div class="form-group">
 		<label class="">Thubmnail</label>
-		<input type="file" name="image_path" class="form-control">
+		<input type="file" name="image_path" class="form-control" required>
 	</div>
 	
 	
@@ -58,9 +58,11 @@ Upload Background Images
 				cache : false,
 				beforeSend : function(){
 					$(".add-game-btn").html('Uploading...');
+					$(".add-game-btn").attr("disabled", true);
 				},
 				success : function(response)
 				{
+					$(".add-game-btn").attr("disabled", false);
 					$(".add-game-btn").html('Add Game');
 					$(".notice").removeClass('d-none');
 					setTimeout(function(){
@@ -70,6 +72,7 @@ Upload Background Images
 				},
 				error : function(error)
 				{
+					$(".add-game-btn").attr("disabled", false);
 					$(".add-game-btn").html('Add Game');
 					alert('something went wrong')
 				}

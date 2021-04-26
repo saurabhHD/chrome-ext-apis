@@ -18,7 +18,7 @@ Upload Background Images
 	@csrf
 	<div class="form-group ">
 		<label class="">Select Shortcut Position</label>
-		<select class="form-control" name="s_number" type="number">
+		<select class="form-control" name="s_number" type="number" required>
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -34,15 +34,15 @@ Upload Background Images
 	
 	<div class="form-group">
 		<label class="">Title</label>
-		<input type="text" name="title" class="form-control">
+		<input type="text" name="title" class="form-control" required>
 	</div>
 	<div class="form-group">
 		<label class="">Url</label>
-		<input type="url" name="url" class="form-control">
+		<input type="url" name="url" class="form-control" required>
 	</div>
 	<div class="form-group">
 		<label class="">Thubmnail</label>
-		<input type="file" accept='image/*' name="image_path" class="form-control">
+		<input type="file" accept='image/*' name="image_path" class="form-control" required>
 	</div>
 	<button class="btn my-btn float-right px-4 shadow-lg create-shortcut-btn" type="submit">Create</button>
 </form>
@@ -76,7 +76,7 @@ Upload Background Images
 				{
 					$(".create-shortcut-btn").html("Create");
 					$(".notice").removeClass("d-none");
-					$(".create-shortcut-btn").attr('disabled', true);
+					$(".create-shortcut-btn").attr('disabled', false);
 					setTimeout(function(){
 						$(".notice").addClass("d-none");
 					},1500);
@@ -84,7 +84,7 @@ Upload Background Images
 				},
 				error : function(error)
 				{
-					$(".create-shortcut-btn").attr('disabled', true);
+					$(".create-shortcut-btn").attr('disabled', false);
 					$(".create-shortcut-btn").html("Create");
 					alert('Already created go to the delete section fist delete shortcut then create again');
 				}
