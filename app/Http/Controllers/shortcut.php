@@ -20,7 +20,7 @@ class shortcut extends Controller
     public $random;
     public function index()
     {
-        $this->data = Manage_shortcut::all('id','s_number','title');
+        $this->data = Manage_shortcut::all('id','s_number','title','url');
         return response(array('data' => $this->data),200)->header('Content-Type','application/json');
     }
 

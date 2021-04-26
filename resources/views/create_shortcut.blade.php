@@ -70,11 +70,13 @@ Upload Background Images
 				cache : false,
 				beforeSend : function(){
 					$(".create-shortcut-btn").html("Uploading...");
+					$(".create-shortcut-btn").attr('disabled', true);
 				},
 				success : function(response)
 				{
 					$(".create-shortcut-btn").html("Create");
 					$(".notice").removeClass("d-none");
+					$(".create-shortcut-btn").attr('disabled', true);
 					setTimeout(function(){
 						$(".notice").addClass("d-none");
 					},1500);
@@ -82,6 +84,7 @@ Upload Background Images
 				},
 				error : function(error)
 				{
+					$(".create-shortcut-btn").attr('disabled', true);
 					$(".create-shortcut-btn").html("Create");
 					alert('Already created go to the delete section fist delete shortcut then create again');
 				}
