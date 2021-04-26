@@ -13,13 +13,18 @@ Upload Background Images
 @endsection
 
 @section('form-box')
+<div class="p-3 d-none notice">
+<div class="alert alert-success mt-5 shadow-lg mb-5">
+	<p class="text-center">Congrates ! </p>
+	<p class="text-center">Upload Successfull</p>
+	
+</div>
+</div>
 <div class="mb-2">
 <form class="p-3 support-form" action="api/support" method="post">
-	<div class="form-group" >
-		<label class="">Select Extention</label>
-		<select class="form-control ext-option" name="ext_id">
-			
-		</select>
+	<div class="form-group">
+		<label class="">Feedback Url</label>
+		<input type="url" name="feedback" class="form-control">
 	</div>
 	<div class="form-group">
 		<label class="">Support</label>
@@ -54,18 +59,12 @@ Upload Background Images
 	<button class="btn my-btn float-right px-4 shadow-lg support-fom-btn" type="submit">Submit</button>
 </form>
 </div>
-<div class="p-3 d-none notice">
-<div class="alert alert-success mt-5 shadow-lg mb-5">
-	<p class="text-center">Congrates ! </p>
-	<p class="text-center">Upload Successfull</p>
-	
-</div>
-</div>
+
 @endsection
 
 @section('custom-js')
 
-	<script src="lang/js/load-ext.js"></script>
+
 	<script>
 		$(document).ready(function(){
 			$(".support-form").on("submit", function(e){
@@ -79,9 +78,12 @@ Upload Background Images
 					cache : false,
 					beforeSend : function(){
 						$(".support-fom-btn").html("Uploading...");
+						$(".support-fom-btn").attr('disabled', true);
 					},
 					success : function(response)
 					{
+						console.log(response);
+						$(".support-fom-btn").attr('disabled', false);
 						$(".support-fom-btn").html("Submit");
 						$(".notice").removeClass('d-none');
 						setTimeout(function(){
@@ -91,6 +93,8 @@ Upload Background Images
 					},
 					error : function(response)
 					{
+						console.log(response);
+						$(".support-fom-btn").attr('disabled', false);
 						$(".support-fom-btn").html("Submit");
 						alert("you already created support option for this extention go to edit support section to change something");
 					}

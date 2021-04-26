@@ -12,10 +12,8 @@ Edit Support
 <form class="p-3 edit-ext-form">
 	@csrf
 	<div class="form-group">
-		<label class="">Select Extention</label>
-		<select class="form-control ext-option" name="ext_id">
-			<option>Select extention</option>
-		</select>
+		<label class="">Feedback url</label>
+		<input type="url" name="feedback" class="form-control feedback">
 	</div>
 	<div class="form-group">
 		<label class="">Support</label>
@@ -55,18 +53,17 @@ Edit Support
 
 @section('custom-js')
 
-<script src="lang/js/load-ext.js"></script>
+
 
 <script>
 	$(document).ready(function(){
-		$(".ext-option").on("input", function(){
-			var id = $(this).val();
-			$.ajax({
+		$.ajax({
 				type : 'get',
-				url : 'api/support/'+id,
+				url : 'api/support/',
 				success : function(response)
 				{
 					var data = response.data[0];
+					$(".feedback").val(data.feedback);
 					$(".faq").val(data.faq);
 					$(".privacy").val(data.privacy);
 					$(".install").val(data.install);
@@ -74,17 +71,18 @@ Edit Support
 					$(".eula").val(data.eula);
 					$(".donate").val(data.donate);
 					$(".support").val(data.support);
+					$(".edit-ext-form").attr('id',data.id);
 					// update code strat
 
 					$(".edit-ext-form").on("submit", function(e){
 						e.preventDefault();
 						
-						
+						var id = $(this).attr('id');
 						$.ajax({
 							type : 'put',
 							url : 'api/support/'+id,
 							data : {
-								ext_id : $(".ext-option").val(),
+								feedback : $(".feedback").val(),
 								faq : $(".faq").val(),
 								privacy : $(".privacy").val(),
 								install : $(".install").val(),
@@ -95,14 +93,18 @@ Edit Support
 							},
 							beforeSend : function(){
 								$(".edit-support-btn").html("Loading...");
+								$(".edit-support-btn").attr('disabled', true);
 							},
 							success : function(response)
 							{
+								$(".edit-support-btn").attr('disabled', false);
 								$(".edit-support-btn").html("Update");
 								alert('success !');
 							},
 							error : function(response)
 							{
+								console.log(response);
+								$(".edit-support-btn").attr('disabled', false);
 								$(".edit-support-btn").html("Update");
 								alert('something went wrong !');
 							}
@@ -114,7 +116,6 @@ Edit Support
 					console.log(response);
 				}
 			});
-		});
 	});
 </script>
 

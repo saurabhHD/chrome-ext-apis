@@ -16,7 +16,7 @@ class CreateManageSupportsTable extends Migration
         Schema::create('manage_supports', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->integer('ext_id');
+            $table->string('feedback');
             $table->string('support');
             $table->string('faq');
             $table->string('privacy');

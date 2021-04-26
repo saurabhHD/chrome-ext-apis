@@ -16,7 +16,15 @@ class ManageSupportController extends Controller
     public $temp;
     public function index()
     {
-        //
+        if($this->data = Manage_support::all())
+        {
+          
+            return response(array('data' => $this->data),200)->header('Content-Type','application/json'); 
+        }
+        else
+        {
+             return response(array('data' => 'not found'),404)->header('Content-Type','application/json'); 
+        }
     }
 
     /**
@@ -38,13 +46,14 @@ class ManageSupportController extends Controller
     public function store(Request $request)
     {
         $this->data = $request->all();
-        $this->temp = $request->all('ext_id');
-        $this->temp = Manage_support::where('ext_id',$this->temp)->get();
+        $this->temp = Manage_support::all();
+
         if(count($this->temp) != 0)
         {
           return response(array('data' => 'already has'),404)->header('Content-Type','application/json');
         }
-        else{
+        elseif(count($this->temp) == 0)
+        {
             
              if(Manage_support::create($this->data))
             {
@@ -66,15 +75,7 @@ class ManageSupportController extends Controller
      */
     public function show($id)
     {
-        if($this->data = Manage_support::where('ext_id',$id))
-        {
-           $this->data =  $this->data->get();
-            return response(array('data' => $this->data),200)->header('Content-Type','application/json'); 
-        }
-        else
-        {
-             return response(array('data' => 'not found'),404)->header('Content-Type','application/json'); 
-        }
+        
         
     }
 
@@ -99,7 +100,7 @@ class ManageSupportController extends Controller
     public function update(Request $request,$id)
     {
         $this->data = $request;
-        $this->temp = Manage_support::where('ext_id', $id);
+        $this->temp = Manage_support::find($id);
         $this->temp->update($this->data->all());
     }
 
