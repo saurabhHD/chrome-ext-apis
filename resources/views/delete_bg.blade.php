@@ -72,7 +72,7 @@ Delete Background Images
 								},
 								success : function(response)
 								{
-									
+									$(delete_bg_btn).attr("disabled", false);
 									$(item).remove();
 									console.log(response);
 								},
