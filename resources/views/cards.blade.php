@@ -48,15 +48,18 @@ Manage Cards
 				beforeSend : function()
 				{
 					$(".upload-card-btn").html('Uploading...');
+					$(".upload-card-btn").attr("disabled", true);
 				},
 				success : function(response)
 				{
+					$(".upload-card-btn").attr("disabled", false);
 					$(".upload-card-btn").html('Upload');
 					console.log(response);
 					load_card();
 				},
 				error : function(error){
 					console.log(error);
+					$(".upload-card-btn").attr("disabled", false);
 					$(".upload-card-btn").html('Upload');
 				}
 			});
@@ -97,14 +100,17 @@ Manage Cards
 				beforeSend : function()
 				{
 					$(".delete-card-btn").html("Deleting..");
+					$(".delete-card-btn").attr('disabled', true);
 				},
 				success : function(response)
 				{
+					$(".delete-card-btn").attr('disabled', false);
 					console.log(response);
 					$(parent).remove();
 				},
 				error : function(error)
 				{
+					$(".delete-card-btn").attr('disabled', false);
 					console.log(error);
 				}
 			});

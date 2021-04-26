@@ -40,19 +40,26 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-
-        $this->data = $request;
-        $this->data = $this->data->all();
-        $this->image_name = $request->file('image_path')->getClientOriginalName();
-        if($request->file('image_path')->storeAs('public/card/' , $this->image_name))
+        
+        if(count(Card::all()) == 0)
         {
-             
-            $this->temp = array("image_path" => "card/".$this->image_name);
-            $this->data = array_replace($this->data, $this->temp);
-            if(Card::create($this->data))
+            $this->data = $request;
+            $this->data = $this->data->all();
+            $this->image_name = $request->file('image_path')->getClientOriginalName();
+            if($request->file('image_path')->storeAs('public/card/' , $this->image_name))
             {
-                return response(array('data' => "success"),200)->header('Content-Type', 'application/json');
-                
+                 
+                $this->temp = array("image_path" => "card/".$this->image_name);
+                $this->data = array_replace($this->data, $this->temp);
+                if(Card::create($this->data))
+                {
+                    return response(array('data' => "success"),200)->header('Content-Type', 'application/json');
+                    
+                }
+                else
+                {
+                     return response(array('data' => "faild"),401)->header('Content-Type', 'application/json');
+                }
             }
             else
             {
@@ -61,8 +68,10 @@ class CardController extends Controller
         }
         else
         {
-             return response(array('data' => "faild"),401)->header('Content-Type', 'application/json');
+            return response(array('data' => "faild"),401)->header('Content-Type', 'application/json');
         }
+
+        
     }
 
     /**
