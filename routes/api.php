@@ -39,6 +39,8 @@ Route::get('/v1/backgroun/app/{ext_id}/all/images','restApi\multiBackgroundContr
 
 Route::get('/v1/game/app/all', 'restApi\gameController@result');
 Route::get('/v1/card/app/all', 'restApi\cardController@result');
+Route::apiResource('/game-promo','GamePromoController');
+Route::apiResource('/v1/game-promo/app/all','GamePromoController');
 
 
 

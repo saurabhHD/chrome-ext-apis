@@ -49,6 +49,7 @@ Create Extention
 		<p class="api-four"></p>
 		<p class="api-five"></p>
 		<p class="api-six"></p>
+		<p class="api-seven"></p>
 		</div>
 	</div>
 
@@ -213,6 +214,7 @@ function create_ext()
 					$(".api-four").html(response.data.four);
 					$(".api-five").html(response.data.five);
 					$(".api-six").html(response.data.six);
+					$(".api-seven").html(response.data.seven);
 				},
 				error : function(response){
 					$(".create-ext-btn").html("Genrate Api");
@@ -234,7 +236,7 @@ function get_ext_api()
 			var parent_div = this.parentElement.parentElement.parentElement.parentElement;
 			var ext_id = $(this).attr("id");
 			var domain = $(this).attr("domain");
-			var api_content = '<div class="alert alert-success mt-5 mb-5">			<p class="text-center">Copy these apis and insert into chrome extention </p>		<p class="api-one">'+domain+'/api/v1/background/image/app/'+ext_id+'/random</p>		<p class="api-two">'+domain+'/api/v1/shortcuts/app/all</p>		<p class="api-three">'+domain+'/api/v1/support/app/all</p>		<p class="api-four">'+domain+'/api/v1/backgroun/app/'+ext_id+'/all/images</p>		<p class="api-five">'+domain+'/api/v1/game/app/all</p>		<p class="api-six">'+domain+'/api/v1/card/app/all</p></div>';
+			var api_content = '<div class="alert alert-success mt-5 mb-5">			<p class="text-center">Copy these apis and insert into chrome extention </p>		<p class="api-one">'+domain+'/api/v1/background/image/app/'+ext_id+'/random</p>		<p class="api-two">'+domain+'/api/v1/shortcuts/app/all</p>		<p class="api-three">'+domain+'/api/v1/support/app/all</p>		<p class="api-four">'+domain+'/api/v1/backgroun/app/'+ext_id+'/all/images</p>		<p class="api-five">'+domain+'/api/v1/game/app/all</p>		<p class="api-six">'+domain+'/api/v1/card/app/all</p><p class="api-seven">'+domain+'/api/v1/game-promo/app/all</p></div>';
 			$(parent_div).append(api_content);
 		});
 	});

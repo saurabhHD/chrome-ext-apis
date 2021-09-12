@@ -81,6 +81,9 @@ Route::get('/dashboard', function(){
 Route::get('/card', function(){
 	return view('cards');
 });
+Route::get('/game-promo', function(){
+	return view('game_promo');
+});
 
 Route::post('/user/login', 'user_login@result');
 

@@ -44,6 +44,7 @@
           <li class="list-group-item"><a href="/delete-shortcut" class="text-decoration-none text-secondary">Delete Shortcuts</a></li>
           <li class="list-group-item"><a href="/add-game" class="text-decoration-none text-secondary">Add Games</a></li>
           <li class="list-group-item"><a href="/delete-game" class="text-decoration-none text-secondary">Delete Games</a></li>
+          <li class="list-group-item"><a href="/game-promo" class="text-decoration-none text-secondary">Game Promo</a></li>
           <li class="list-group-item"><a href="/support" class="text-decoration-none text-secondary">Support</a></li>
           <li class="list-group-item"><a href="/edit-support" class="text-decoration-none text-secondary">Edit Support</a></li>
           <li class="list-group-item"><a href="/card" class="text-decoration-none text-secondary">Create Card</a></li>
