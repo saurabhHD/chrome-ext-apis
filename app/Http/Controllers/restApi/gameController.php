@@ -9,7 +9,7 @@ class gameController extends Controller
 {
 	public $data;
     public function result(){
-    	$this->data = Manage_game::all('title','url','image_path');
+    	$this->data = Manage_game::all('title','url','image_path','category');
 
     	return response(array('data' => $this->data),200)->header('Content-Type','application/json');
     }

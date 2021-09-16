@@ -48,6 +48,7 @@
           <li class="list-group-item"><a href="/support" class="text-decoration-none text-secondary">Support</a></li>
           <li class="list-group-item"><a href="/edit-support" class="text-decoration-none text-secondary">Edit Support</a></li>
           <li class="list-group-item"><a href="/card" class="text-decoration-none text-secondary">Create Card</a></li>
+          <li class="list-group-item"><a href="/more-apps" class="text-decoration-none text-secondary">More Apps</a></li>
         </ul>
         </div>
       </div>

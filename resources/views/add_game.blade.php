@@ -28,7 +28,10 @@ Upload Background Images
 		<label class="">Thubmnail</label>
 		<input type="file" name="image_path" class="form-control" required>
 	</div>
-	
+	<div class="form-group">
+		<label class="">Category</label>
+		<input type="text" name="category" class="form-control" required>
+	</div>
 	
 	<button class="btn my-btn float-right px-4 shadow-lg add-game-btn" type="submit">Add Game</button>
 </form>

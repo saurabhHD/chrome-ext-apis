@@ -83,7 +83,8 @@ class extention extends Controller
                 "four" => $this->url."/api/v1/backgroun/app/".base64_encode($this->data->id)."/all/images", 
                 "five" => $this->url."/api/v1/game/app/all",
                 "six" => $this->url."/api/v1/card/app/all",
-                'seven' => $this->url."/api/v1/game-promo/app/all"
+                'seven' => $this->url."/api/v1/game-promo/app/all",
+                "eight" => $this->url."/api/v1/more-app/app/all"
             );
 
              return response(array("data" => $this->api),200)->header('Content-Type', 'application/json');

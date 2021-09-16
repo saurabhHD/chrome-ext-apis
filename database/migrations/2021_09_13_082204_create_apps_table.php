@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateManageGamesTable extends Migration
+class CreateAppsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateManageGamesTable extends Migration
      */
     public function up()
     {
-        Schema::create('manage_games', function (Blueprint $table) {
+        Schema::create('apps', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->string('title',100);
             $table->string('url');
             $table->string('image_path');
-            $table->string('category',100);
+            $table->string('category');
         });
     }
 
@@ -30,6 +30,6 @@ class CreateManageGamesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('manage_games');
+        Schema::dropIfExists('apps');
     }
 }

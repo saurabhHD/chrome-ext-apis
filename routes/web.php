@@ -84,7 +84,9 @@ Route::get('/card', function(){
 Route::get('/game-promo', function(){
 	return view('game_promo');
 });
-
+Route::get('/more-apps', function(){
+	return view('more-apps');
+});
 Route::post('/user/login', 'user_login@result');
 
 Route::post('/user/signup', 'user_signup@result');
